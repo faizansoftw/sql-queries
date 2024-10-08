@@ -1,0 +1,764 @@
+<ShowPlanXML xmlns="http://schemas.microsoft.com/sqlserver/2004/07/showplan" Version="1.564" Build="16.0.1000.6">
+  <BatchSequence>
+    <Batch>
+      <Statements>
+        <StmtSimple StatementText="(@p33 int,@p0 nvarchar(4000),@p1 int,@p2 nvarchar(40),@p3 int,@p4 int,@p5 int,@p6 int,@p7 nvarchar(15),@p8 datetime2(7),@p9 int,@p10 nvarchar(15),@p11 decimal(18,2),@p12 nvarchar(4000),@p13 decimal(18,2),@p14 bit,@p15 bit,@p16 nvarchar(255),@p17 int,@p18 int,@p19 int,@p20 decimal(18,2),@p21 datetime2(7),@p22 datetime2(7),@p23 nvarchar(4000),@p24 nvarchar(4000),@p25 datetime2(7),@p26 int,@p27 decimal(18,2),@p28 datetime2(7),@p29 datetime2(7),@p30 datetime2(7),@p31 datetime2(7),@p32 decimal(18,2))SET NOCOUNT ON;&#xD;&#xA;" StatementId="1" StatementCompId="1" StatementType="SET ON/OFF" RetrievedFromCache="true" />
+        <StmtSimple StatementText="UPDATE [CallLogs] SET [CallNote] = @p0, [CallResultId] = @p1, [CallSid] = @p2, [CallStatus] = @p3, [CampaignId] = @p4, [ClientId] = @p5, [CompanyId] = @p6, [ConfId] = @p7, [CreatedOn] = @p8, [CustomerId] = @p9, [Direction] = @p10, [Duration] = @p11, [From] = @p12, [HandleTime] = @p13, [IsRead] = @p14, [IsReadMissedCall] = @p15, [PowerDialNumbers] = @p16, [ReadByUserId] = @p17, [RequestStatus] = @p18, [SalesRepId] = @p19, [TalkTime] = @p20, [TalkTimeIn] = @p21, [TalkTimeOut] = @p22, [To] = @p23, [TwilioCallStatus] = @p24, [UpdatedOn] = @p25, [UserId] = @p26, [WaitTime] = @p27, [WaitTimeIn] = @p28, [WaitTimeOut] = @p29, [WrapInTime] = @p30, [WrapOutTime] = @p31, [WrapTime] = @p32&#xD;&#xA;WHERE [Id] = @p33" StatementId="2" StatementCompId="2" StatementType="UPDATE" RetrievedFromCache="true" StatementSubTreeCost="0.0532883" StatementEstRows="1" SecurityPolicyApplied="false" StatementOptmLevel="TRIVIAL" QueryHash="0x96A34D396833BC6B" QueryPlanHash="0xBF9BE51C359917A4" CardinalityEstimationModelVersion="160">
+          <StatementSetOptions QUOTED_IDENTIFIER="true" ARITHABORT="false" CONCAT_NULL_YIELDS_NULL="true" ANSI_NULLS="true" ANSI_PADDING="true" ANSI_WARNINGS="true" NUMERIC_ROUNDABORT="false" />
+          <QueryPlan NonParallelPlanReason="NoParallelPlansInDesktopOrExpressEdition" CachedPlanSize="80" CompileTime="33" CompileCPU="7" CompileMemory="880">
+            <MemoryGrantInfo SerialRequiredMemory="0" SerialDesiredMemory="0" GrantedMemory="0" MaxUsedMemory="0" />
+            <OptimizerHardwareDependentProperties EstimatedAvailableMemoryGrant="838847" EstimatedPagesCached="209711" EstimatedAvailableDegreeOfParallelism="2" MaxCompileMemory="22220568" />
+            <OptimizerStatsUsage>
+              <StatisticsInfo LastUpdate="2024-08-06T20:45:50.03" ModificationCount="8006" SamplingPercent="12.475" Statistics="[PK_CallLogs]" Table="[CallLogs]" Schema="[dbo]" Database="[contactaholic-production-db]" />
+            </OptimizerStatsUsage>
+            <TraceFlags IsCompileTime="1">
+              <TraceFlag Value="8017" Scope="Global" />
+            </TraceFlags>
+            <RelOp NodeId="1" PhysicalOp="Clustered Index Update" LogicalOp="Update" EstimateRows="1" EstimateIO="0.05" EstimateCPU="5e-06" AvgRowSize="9" EstimatedTotalSubtreeCost="0.0532883" Parallel="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+              <OutputList />
+              <Update DMLRequestSort="0">
+                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[PK_CallLogs]" IndexKind="Clustered" Storage="RowStore" />
+                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[IX_CallLogs_CallSid]" IndexKind="NonClustered" Storage="RowStore" />
+                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[IX_CallLogs_CompanyId]" IndexKind="NonClustered" Storage="RowStore" />
+                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[IX_CallLogs_ConfId]" IndexKind="NonClustered" Storage="RowStore" />
+                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[IX_CallLogs_UserId]" IndexKind="NonClustered" Storage="RowStore" />
+                <SetPredicate>
+                  <ScalarOperator ScalarString="[contactaholic-production-db].[dbo].[CallLogs].[CallNote] = RaiseIfNullUpdate([Expr1002]),[contactaholic-production-db].[dbo].[CallLogs].[CallResultId] = [@p1],[contactaholic-production-db].[dbo].[CallLogs].[CallSid] = [@p2],[contactaholic-production-db].[dbo].[CallLogs].[CallStatus] = RaiseIfNullUpdate([@p3]),[contactaholic-production-db].[dbo].[CallLogs].[CampaignId] = [@p4],[contactaholic-production-db].[dbo].[CallLogs].[ClientId] = [@p5],[contactaholic-production-db].[dbo].[CallLogs].[CompanyId] = RaiseIfNullUpdate([@p6]),[contactaholic-production-db].[dbo].[CallLogs].[ConfId] = [@p7],[contactaholic-production-db].[dbo].[CallLogs].[CreatedOn] = RaiseIfNullUpdate([@p8]),[contactaholic-production-db].[dbo].[CallLogs].[CustomerId] = [@p9],[contactaholic-production-db].[dbo].[CallLogs].[Direction] = RaiseIfNullUpdate([@p10]),[contactaholic-production-db].[dbo].[CallLogs].[Duration] = [@p11],[contactaholic-production-db].[dbo].[CallLogs].[From] = RaiseIfNullUpdate([Expr1003]),[contactaholic-production-db].[dbo].[CallLogs].[HandleTime] = [@p13],[contactaholic-production-db].[dbo].[CallLogs].[IsRead] = RaiseIfNullUpdate([@p14]),[contactaholic-production-db].[dbo].[CallLogs].[IsReadMissedCall] = RaiseIfNullUpdate([@p15]),[contactaholic-production-db].[dbo].[CallLogs].[PowerDialNumbers] = [@p16],[contactaholic-production-db].[dbo].[CallLogs].[ReadByUserId] = [@p17],[contactaholic-production-db].[dbo].[CallLogs].[RequestStatus] = RaiseIfNullUpdate([@p18]),[contactaholic-production-db].[dbo].[CallLogs].[SalesRepId] = [@p19],[contactaholic-production-db].[dbo].[CallLogs].[TalkTime] = [@p20],[contactaholic-production-db].[dbo].[CallLogs].[TalkTimeIn] = [@p21],[contactaholic-production-db].[dbo].[CallLogs].[TalkTimeOut] = [@p22],[contactaholic-production-db].[dbo].[CallLogs].[To] = RaiseIfNullUpdate([Expr1004]),[contactaholic-production-db].[dbo].[CallLogs].[TwilioCallStatus] = RaiseIfNullUpdate([Expr1005]),[contactaholic-production-db].[dbo].[CallLogs].[UpdatedOn] = [@p25],[contactaholic-production-db].[dbo].[CallLogs].[UserId] = RaiseIfNullUpdate([@p26]),[contactaholic-production-db].[dbo].[CallLogs].[WaitTime] = [@p27],[contactaholic-production-db].[dbo].[CallLogs].[WaitTimeIn] = [@p28],[contactaholic-production-db].[dbo].[CallLogs].[WaitTimeOut] = [@p29],[contactaholic-production-db].[dbo].[CallLogs].[WrapInTime] = [@p30],[contactaholic-production-db].[dbo].[CallLogs].[WrapOutTime] = [@p31],[contactaholic-production-db].[dbo].[CallLogs].[WrapTime] = [@p32]">
+                    <ScalarExpressionList>
+                      <ScalarOperator>
+                        <MultipleAssign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallNote" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="Expr1002" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallResultId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p1" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallSid" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p2" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallStatus" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p3" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CampaignId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p4" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ClientId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p5" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CompanyId" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p6" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ConfId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p7" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CreatedOn" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p8" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CustomerId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p9" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Direction" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p10" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Duration" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p11" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="From" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="Expr1003" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="HandleTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p13" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="IsRead" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p14" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="IsReadMissedCall" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p15" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="PowerDialNumbers" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p16" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ReadByUserId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p17" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="RequestStatus" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p18" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="SalesRepId" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p19" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="TalkTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p20" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="TalkTimeIn" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p21" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="TalkTimeOut" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p22" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="To" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="Expr1004" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="TwilioCallStatus" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="Expr1005" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UpdatedOn" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p25" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UserId" />
+                            <ScalarOperator>
+                              <Intrinsic FunctionName="RaiseIfNullUpdate">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p26" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Intrinsic>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WaitTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p27" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WaitTimeIn" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p28" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WaitTimeOut" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p29" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WrapInTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p30" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WrapOutTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p31" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                          <Assign>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="WrapTime" />
+                            <ScalarOperator>
+                              <Identifier>
+                                <ColumnReference Column="@p32" />
+                              </Identifier>
+                            </ScalarOperator>
+                          </Assign>
+                        </MultipleAssign>
+                      </ScalarOperator>
+                    </ScalarExpressionList>
+                  </ScalarOperator>
+                </SetPredicate>
+                <RelOp NodeId="2" PhysicalOp="Compute Scalar" LogicalOp="Compute Scalar" EstimateRows="1" EstimateIO="0" EstimateCPU="1e-07" AvgRowSize="16134" EstimatedTotalSubtreeCost="0.0032833" Parallel="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                  <OutputList>
+                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                    <ColumnReference Column="Expr1002" />
+                    <ColumnReference Column="Expr1003" />
+                    <ColumnReference Column="Expr1004" />
+                    <ColumnReference Column="Expr1005" />
+                    <ColumnReference Column="Expr1037" />
+                    <ColumnReference Column="Expr1038" />
+                    <ColumnReference Column="Expr1039" />
+                    <ColumnReference Column="Expr1040" />
+                  </OutputList>
+                  <ComputeScalar>
+                    <DefinedValues>
+                      <DefinedValue>
+                        <ColumnReference Column="Expr1037" />
+                        <ScalarOperator ScalarString="[Expr1037]">
+                          <Identifier>
+                            <ColumnReference Column="Expr1037" />
+                          </Identifier>
+                        </ScalarOperator>
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Column="Expr1038" />
+                        <ScalarOperator ScalarString="[Expr1038]">
+                          <Identifier>
+                            <ColumnReference Column="Expr1038" />
+                          </Identifier>
+                        </ScalarOperator>
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Column="Expr1039" />
+                        <ScalarOperator ScalarString="[Expr1039]">
+                          <Identifier>
+                            <ColumnReference Column="Expr1039" />
+                          </Identifier>
+                        </ScalarOperator>
+                      </DefinedValue>
+                      <DefinedValue>
+                        <ColumnReference Column="Expr1040" />
+                        <ScalarOperator ScalarString="[Expr1040]">
+                          <Identifier>
+                            <ColumnReference Column="Expr1040" />
+                          </Identifier>
+                        </ScalarOperator>
+                      </DefinedValue>
+                    </DefinedValues>
+                    <RelOp NodeId="3" PhysicalOp="Compute Scalar" LogicalOp="Compute Scalar" EstimateRows="1" EstimateIO="0" EstimateCPU="1e-07" AvgRowSize="16134" EstimatedTotalSubtreeCost="0.0032833" Parallel="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                      <OutputList>
+                        <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                        <ColumnReference Column="Expr1002" />
+                        <ColumnReference Column="Expr1003" />
+                        <ColumnReference Column="Expr1004" />
+                        <ColumnReference Column="Expr1005" />
+                        <ColumnReference Column="Expr1037" />
+                        <ColumnReference Column="Expr1038" />
+                        <ColumnReference Column="Expr1039" />
+                        <ColumnReference Column="Expr1040" />
+                      </OutputList>
+                      <ComputeScalar>
+                        <DefinedValues>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1002" />
+                            <ScalarOperator ScalarString="CONVERT_IMPLICIT(nvarchar(max),[@p0],0)">
+                              <Convert DataType="nvarchar(max)" Length="2147483647" Style="0" Implicit="1">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p0" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Convert>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1003" />
+                            <ScalarOperator ScalarString="CONVERT_IMPLICIT(nvarchar(max),[@p12],0)">
+                              <Convert DataType="nvarchar(max)" Length="2147483647" Style="0" Implicit="1">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p12" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Convert>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1004" />
+                            <ScalarOperator ScalarString="CONVERT_IMPLICIT(nvarchar(max),[@p23],0)">
+                              <Convert DataType="nvarchar(max)" Length="2147483647" Style="0" Implicit="1">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p23" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Convert>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1005" />
+                            <ScalarOperator ScalarString="CONVERT_IMPLICIT(nvarchar(max),[@p24],0)">
+                              <Convert DataType="nvarchar(max)" Length="2147483647" Style="0" Implicit="1">
+                                <ScalarOperator>
+                                  <Identifier>
+                                    <ColumnReference Column="@p24" />
+                                  </Identifier>
+                                </ScalarOperator>
+                              </Convert>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1037" />
+                            <ScalarOperator ScalarString="CASE WHEN CASE WHEN [contactaholic-production-db].[dbo].[CallLogs].[CallSid] = [@p2] THEN (1) ELSE (0) END THEN (0) ELSE (1) END">
+                              <IF>
+                                <Condition>
+                                  <ScalarOperator>
+                                    <IF>
+                                      <Condition>
+                                        <ScalarOperator>
+                                          <Compare CompareOp="BINARY IS">
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallSid" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Column="@p2" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                      </Condition>
+                                      <Then>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(1)" />
+                                        </ScalarOperator>
+                                      </Then>
+                                      <Else>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(0)" />
+                                        </ScalarOperator>
+                                      </Else>
+                                    </IF>
+                                  </ScalarOperator>
+                                </Condition>
+                                <Then>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(0)" />
+                                  </ScalarOperator>
+                                </Then>
+                                <Else>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(1)" />
+                                  </ScalarOperator>
+                                </Else>
+                              </IF>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1038" />
+                            <ScalarOperator ScalarString="CASE WHEN CASE WHEN [contactaholic-production-db].[dbo].[CallLogs].[CompanyId] = [@p6] THEN (1) ELSE (0) END THEN (0) ELSE (1) END">
+                              <IF>
+                                <Condition>
+                                  <ScalarOperator>
+                                    <IF>
+                                      <Condition>
+                                        <ScalarOperator>
+                                          <Compare CompareOp="BINARY IS">
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CompanyId" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Column="@p6" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                      </Condition>
+                                      <Then>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(1)" />
+                                        </ScalarOperator>
+                                      </Then>
+                                      <Else>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(0)" />
+                                        </ScalarOperator>
+                                      </Else>
+                                    </IF>
+                                  </ScalarOperator>
+                                </Condition>
+                                <Then>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(0)" />
+                                  </ScalarOperator>
+                                </Then>
+                                <Else>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(1)" />
+                                  </ScalarOperator>
+                                </Else>
+                              </IF>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1039" />
+                            <ScalarOperator ScalarString="CASE WHEN CASE WHEN [contactaholic-production-db].[dbo].[CallLogs].[ConfId] = [@p7] THEN (1) ELSE (0) END THEN (0) ELSE (1) END">
+                              <IF>
+                                <Condition>
+                                  <ScalarOperator>
+                                    <IF>
+                                      <Condition>
+                                        <ScalarOperator>
+                                          <Compare CompareOp="BINARY IS">
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ConfId" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Column="@p7" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                      </Condition>
+                                      <Then>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(1)" />
+                                        </ScalarOperator>
+                                      </Then>
+                                      <Else>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(0)" />
+                                        </ScalarOperator>
+                                      </Else>
+                                    </IF>
+                                  </ScalarOperator>
+                                </Condition>
+                                <Then>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(0)" />
+                                  </ScalarOperator>
+                                </Then>
+                                <Else>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(1)" />
+                                  </ScalarOperator>
+                                </Else>
+                              </IF>
+                            </ScalarOperator>
+                          </DefinedValue>
+                          <DefinedValue>
+                            <ColumnReference Column="Expr1040" />
+                            <ScalarOperator ScalarString="CASE WHEN CASE WHEN [contactaholic-production-db].[dbo].[CallLogs].[UserId] = [@p26] THEN (1) ELSE (0) END THEN (0) ELSE (1) END">
+                              <IF>
+                                <Condition>
+                                  <ScalarOperator>
+                                    <IF>
+                                      <Condition>
+                                        <ScalarOperator>
+                                          <Compare CompareOp="BINARY IS">
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UserId" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                            <ScalarOperator>
+                                              <Identifier>
+                                                <ColumnReference Column="@p26" />
+                                              </Identifier>
+                                            </ScalarOperator>
+                                          </Compare>
+                                        </ScalarOperator>
+                                      </Condition>
+                                      <Then>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(1)" />
+                                        </ScalarOperator>
+                                      </Then>
+                                      <Else>
+                                        <ScalarOperator>
+                                          <Const ConstValue="(0)" />
+                                        </ScalarOperator>
+                                      </Else>
+                                    </IF>
+                                  </ScalarOperator>
+                                </Condition>
+                                <Then>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(0)" />
+                                  </ScalarOperator>
+                                </Then>
+                                <Else>
+                                  <ScalarOperator>
+                                    <Const ConstValue="(1)" />
+                                  </ScalarOperator>
+                                </Else>
+                              </IF>
+                            </ScalarOperator>
+                          </DefinedValue>
+                        </DefinedValues>
+                        <RelOp NodeId="4" PhysicalOp="Top" LogicalOp="Top" EstimateRows="1" EstimateIO="0" EstimateCPU="1e-07" AvgRowSize="80" EstimatedTotalSubtreeCost="0.0032832" Parallel="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                          <OutputList>
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UserId" />
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CompanyId" />
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallSid" />
+                            <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ConfId" />
+                          </OutputList>
+                          <Top RowCount="0" IsPercent="0" WithTies="0">
+                            <TopExpression>
+                              <ScalarOperator ScalarString="(1)">
+                                <Const ConstValue="(1)" />
+                              </ScalarOperator>
+                            </TopExpression>
+                            <RelOp NodeId="5" PhysicalOp="Clustered Index Seek" LogicalOp="Clustered Index Seek" EstimateRows="1" EstimatedRowsRead="1" EstimateIO="0.003125" EstimateCPU="0.0001581" AvgRowSize="80" EstimatedTotalSubtreeCost="0.0032831" TableCardinality="122896" Parallel="0" EstimateRebinds="0" EstimateRewinds="0" EstimatedExecutionMode="Row">
+                              <OutputList>
+                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UserId" />
+                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CompanyId" />
+                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallSid" />
+                                <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ConfId" />
+                              </OutputList>
+                              <IndexScan Ordered="1" ScanDirection="FORWARD" ForcedIndex="0" ForceSeek="0" ForceScan="0" NoExpandHint="0" Storage="RowStore">
+                                <DefinedValues>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="UserId" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CompanyId" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="CallSid" />
+                                  </DefinedValue>
+                                  <DefinedValue>
+                                    <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="ConfId" />
+                                  </DefinedValue>
+                                </DefinedValues>
+                                <Object Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Index="[PK_CallLogs]" IndexKind="Clustered" Storage="RowStore" />
+                                <SeekPredicates>
+                                  <SeekPredicateNew>
+                                    <SeekKeys>
+                                      <Prefix ScanType="EQ">
+                                        <RangeColumns>
+                                          <ColumnReference Database="[contactaholic-production-db]" Schema="[dbo]" Table="[CallLogs]" Column="Id" />
+                                        </RangeColumns>
+                                        <RangeExpressions>
+                                          <ScalarOperator ScalarString="[@p33]">
+                                            <Identifier>
+                                              <ColumnReference Column="@p33" />
+                                            </Identifier>
+                                          </ScalarOperator>
+                                        </RangeExpressions>
+                                      </Prefix>
+                                    </SeekKeys>
+                                  </SeekPredicateNew>
+                                </SeekPredicates>
+                              </IndexScan>
+                            </RelOp>
+                          </Top>
+                        </RelOp>
+                      </ComputeScalar>
+                    </RelOp>
+                  </ComputeScalar>
+                </RelOp>
+              </Update>
+            </RelOp>
+            <ParameterList>
+              <ColumnReference Column="@p32" ParameterDataType="decimal(18,2)" ParameterCompiledValue="(0.00)" />
+              <ColumnReference Column="@p31" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:18:08.8634647'" />
+              <ColumnReference Column="@p30" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:21:42.9701655'" />
+              <ColumnReference Column="@p29" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:18:04.1157086'" />
+              <ColumnReference Column="@p28" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:18:08.8980019'" />
+              <ColumnReference Column="@p27" ParameterDataType="decimal(18,2)" ParameterCompiledValue="(2.13)" />
+              <ColumnReference Column="@p26" ParameterDataType="int" ParameterCompiledValue="(122)" />
+              <ColumnReference Column="@p25" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:21:43.1196691'" />
+              <ColumnReference Column="@p24" ParameterDataType="nvarchar(4000)" ParameterCompiledValue="N'Call Wraping'" />
+              <ColumnReference Column="@p23" ParameterDataType="nvarchar(4000)" ParameterCompiledValue="N'+15596244065'" />
+              <ColumnReference Column="@p22" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:18:05.5474189'" />
+              <ColumnReference Column="@p21" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:17:14.6568078'" />
+              <ColumnReference Column="@p20" ParameterDataType="decimal(18,2)" ParameterCompiledValue="(50.89)" />
+              <ColumnReference Column="@p19" ParameterDataType="int" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p18" ParameterDataType="int" ParameterCompiledValue="(0)" />
+              <ColumnReference Column="@p17" ParameterDataType="int" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p16" ParameterDataType="nvarchar(255)" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p15" ParameterDataType="bit" ParameterCompiledValue="(0)" />
+              <ColumnReference Column="@p14" ParameterDataType="bit" ParameterCompiledValue="(0)" />
+              <ColumnReference Column="@p13" ParameterDataType="decimal(18,2)" ParameterCompiledValue="(3.30)" />
+              <ColumnReference Column="@p12" ParameterDataType="nvarchar(4000)" ParameterCompiledValue="N'client:lucy@ecalls.co,+17609708835'" />
+              <ColumnReference Column="@p11" ParameterDataType="decimal(18,2)" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p10" ParameterDataType="nvarchar(15)" ParameterCompiledValue="N'outbound'" />
+              <ColumnReference Column="@p9" ParameterDataType="int" ParameterCompiledValue="(78876)" />
+              <ColumnReference Column="@p8" ParameterDataType="datetime2(7)" ParameterCompiledValue="'2024-08-08 13:17:14.6568069'" />
+              <ColumnReference Column="@p7" ParameterDataType="nvarchar(15)" ParameterCompiledValue="N'1723123032886'" />
+              <ColumnReference Column="@p6" ParameterDataType="int" ParameterCompiledValue="(1)" />
+              <ColumnReference Column="@p5" ParameterDataType="int" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p4" ParameterDataType="int" ParameterCompiledValue="(0)" />
+              <ColumnReference Column="@p3" ParameterDataType="int" ParameterCompiledValue="(152)" />
+              <ColumnReference Column="@p2" ParameterDataType="nvarchar(40)" ParameterCompiledValue="N'CA4bdf135561ea75ccf73c6f8f033ba856'" />
+              <ColumnReference Column="@p1" ParameterDataType="int" ParameterCompiledValue="NULL" />
+              <ColumnReference Column="@p0" ParameterDataType="nvarchar(4000)" ParameterCompiledValue="N''" />
+              <ColumnReference Column="@p33" ParameterDataType="int" ParameterCompiledValue="(127846)" />
+            </ParameterList>
+          </QueryPlan>
+        </StmtSimple>
+        <StmtSimple StatementText=";&#xD;&#xA;SELECT @@ROWCOUNT" StatementId="3" StatementCompId="3" StatementType="SELECT WITHOUT QUERY" RetrievedFromCache="true" />
+      </Statements>
+    </Batch>
+  </BatchSequence>
+</ShowPlanXML>

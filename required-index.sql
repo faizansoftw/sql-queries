@@ -1,0 +1,21 @@
+CREATE INDEX [IX_CallLogs_CompanyId] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId]) INCLUDE ([CallStatus])
+CREATE INDEX [IX_CallLogs_UserId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId],[CreatedOn])
+CREATE INDEX [IX_CallLogs_UserId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId],[CreatedOn]) INCLUDE ([HandleTime])
+CREATE INDEX [IX_CallLogs_UserId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId],[CreatedOn]) INCLUDE ([Duration])
+CREATE INDEX [IX_CallLogs_UserId_CompanyId_IsReadMissedCall] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId], [IsReadMissedCall]) INCLUDE ([To], [Direction])
+CREATE INDEX [IX_CallLogs_CompanyId_CallStatus] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId],[CallStatus])
+CREATE INDEX [IX_CallLogs_UserId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId],[CreatedOn]) INCLUDE ([TalkTime])
+CREATE INDEX [IX_CallLogs_CompanyId_Direction_CustomerId] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId], [Direction],[CustomerId])
+CREATE INDEX [IX_CallLogs_UserId] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId]) INCLUDE ([HandleTime])
+CREATE INDEX [IX_CallLogs_UserId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId],[CreatedOn]) INCLUDE ([WrapTime])
+CREATE INDEX [IX_CallLogs_CompanyId_CustomerId] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId],[CustomerId]) INCLUDE ([HandleTime])
+CREATE INDEX [IX_CallLogs_CompanyId_CustomerId] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId],[CustomerId]) INCLUDE ([WaitTime])
+CREATE INDEX [IX_CallLogs_UserId_CompanyId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId],[CreatedOn]) INCLUDE ([Direction])
+CREATE INDEX [IX_CallLogs_UserId_CompanyId] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId]) INCLUDE ([CallStatus])
+CREATE INDEX [IX_CallLogs_CompanyId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([CompanyId],[CreatedOn]) INCLUDE ([Direction])
+CREATE INDEX [IX_CallLogs_UserId_CompanyId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId],[CreatedOn])
+CREATE INDEX [IX_CallLogs_UserId_CompanyId_Direction_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId],[Direction], [CreatedOn])
+
+
+
+1. CREATE INDEX [IX_CallLogs_UserId_CompanyId_CreatedOn] ON [contactaholic-production-db].[dbo].[CallLogs] ([UserId], [CompanyId],[CreatedOn]) INCLUDE ([CallStatus])
